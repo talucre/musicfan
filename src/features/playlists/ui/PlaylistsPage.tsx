@@ -44,7 +44,7 @@ export const PlaylistsPage = () => {
 
     return (
         <div className={s.container}>
-            <h1>Playlist page</h1>
+            <h1>Playlists page</h1>
             <CreatePlaylistForm />
             <div className={s.items}>
                 {data?.data.map(playlist => {
