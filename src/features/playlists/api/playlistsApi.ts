@@ -9,6 +9,7 @@ import type { Images } from '@/common/types'
 
 export const playlistsApi = baseApi.injectEndpoints({
     endpoints: build => ({
+        // Playlists
         fetchPlaylists: build.query<PlaylistsResponse, void>({
             query: () => `playlists`,
             providesTags: ['Playlist'],
@@ -45,6 +46,14 @@ export const playlistsApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ['Playlist'],
         }),
+        deletePlaylist: build.mutation<void, string>({
+            query: playlistId => ({
+                url: `playlists/${playlistId}`,
+                method: 'delete',
+            }),
+            invalidatesTags: ['Playlist'],
+        }),
+        // Playlists' cover
         uploadPlaylistCover: build.mutation<
             Images,
             { playlistId: string; file: File }
@@ -61,9 +70,9 @@ export const playlistsApi = baseApi.injectEndpoints({
             },
             invalidatesTags: ['Playlist'],
         }),
-        deletePlaylist: build.mutation<void, string>({
+        deletePlaylistCover: build.mutation<void, string>({
             query: playlistId => ({
-                url: `playlists/${playlistId}`,
+                url: `playlists/${playlistId}/images/main`,
                 method: 'delete',
             }),
             invalidatesTags: ['Playlist'],
@@ -75,6 +84,7 @@ export const {
     useFetchPlaylistsQuery,
     useCreatePlaylistMutation,
     useUpdatePlaylistMutation,
-    useUploadPlaylistCoverMutation,
     useDeletePlaylistMutation,
+    useUploadPlaylistCoverMutation,
+    useDeletePlaylistCoverMutation,
 } = playlistsApi
