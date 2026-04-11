@@ -12,16 +12,20 @@ import type {
     UpdatePlaylistArgs,
 } from '@/features/playlists/api/playlistsApi.types.ts'
 import s from './PlaylistPage.module.scss'
+import { useDebounceValue } from '@/common/hooks'
 
 export const PlaylistsPage = () => {
     const [playlistId, setPlaylistId] = useState<string | null>(null)
-
     const { register, handleSubmit, reset } = useForm<UpdatePlaylistArgs>()
 
-    const { data, isLoading } = useFetchPlaylistsQuery()
-    const [deletePlaylist] = useDeletePlaylistMutation()
+    const [search, setSearch] = useState('')
 
-    if (isLoading) return <h1>Loading</h1>
+    const debouncedSearch = useDebounceValue(search)
+    const { data, isLoading } = useFetchPlaylistsQuery({
+        search: debouncedSearch,
+    })
+
+    const [deletePlaylist] = useDeletePlaylistMutation()
 
     const deletePlaylistHandler = (playlistId: string) => {
         if (window.confirm('Are you sure you want to delete this playlist?')) {
@@ -46,7 +50,16 @@ export const PlaylistsPage = () => {
         <div className={s.container}>
             <h1>Playlists page</h1>
             <CreatePlaylistForm />
+            <input
+                type="search"
+                placeholder="Search playlist by title"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+            />
             <div className={s.items}>
+                {!data?.data.length && !isLoading && (
+                    <h2>Playlists not found</h2>
+                )}
                 {data?.data.map(playlist => {
                     const isEditing = playlistId === playlist.id
 
