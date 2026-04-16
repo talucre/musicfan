@@ -1,33 +1,10 @@
-import { NavLink } from 'react-router'
-import { Path } from '@/common/routing'
 import s from './Header.module.scss'
-
-const navItems = [
-    { to: Path.Main, label: 'Main' },
-    { to: Path.Playlists, label: 'Playlists' },
-    { to: Path.Tracks, label: 'Tracks' },
-    { to: Path.Profile, label: 'Profile' },
-]
+import baseStyles from '@/styles.module.scss'
 
 export const Header = () => {
     return (
-        <header className={s.container}>
-            <nav>
-                <ul className={s.list}>
-                    {navItems.map(item => (
-                        <li key={item.to}>
-                            <NavLink
-                                to={item.to}
-                                className={({ isActive }) =>
-                                    `link ${isActive ? s.activeLink : ''}`
-                                }
-                            >
-                                {item.label}
-                            </NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+        <header className={s.header}>
+            <button className={baseStyles.btn}>Sign up with APIHUB</button>
         </header>
     )
 }

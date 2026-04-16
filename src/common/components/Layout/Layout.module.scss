@@ -1,0 +1,22 @@
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    "header header"
+    "navbar main";
+  min-height: 100dvh;
+}
+
+.layout > header {
+  grid-area: header;
+}
+
+.layout > nav {
+  grid-area: navbar;
+}
+
+.main {
+  grid-area: main;
+  padding: 32px;
+}

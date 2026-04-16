@@ -1,0 +1,40 @@
+.navbar {
+  background: var(--background-navbar-color);
+}
+
+.container {
+  padding: 0 30px;
+  position: sticky;
+  top: 80px;
+}
+
+@mixin nav-item {
+  background-color: var(--background-navbar-color);
+
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: color-mix(var(--background-navbar-color), white 20%);
+  }
+
+  &:active {
+    background-color: color-mix(var(--background-navbar-color), white 25%);
+  }
+}
+
+.link {
+  @include nav-item;
+}
+
+.activeLink {
+  @include nav-item;
+  color: var(--main-text-color);
+}

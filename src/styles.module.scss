@@ -1,0 +1,19 @@
+.btn {
+  color: var(--main-text-color);
+  padding: 16px 40px;
+  background-color: var(--btn-accent-color);
+  outline: none;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: color-mix(var(--btn-accent-color), black 12.5%);
+  }
+
+  &:active {
+    background-color: color-mix(var(--btn-accent-color), black 20%);
+  }
+}

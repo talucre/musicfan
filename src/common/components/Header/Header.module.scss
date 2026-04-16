@@ -1,13 +1,11 @@
-.container {
-    border-bottom: 1px solid black;
-    padding-left: 100px;
-}
-
-.list {
+.header {
     display: flex;
-    gap: 40px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 32px;
+    background: var(--background-header-color);
+
+    position: sticky;
+    top: 0;
 }
 
-.activeLink {
-    font-weight: bold;
-}
