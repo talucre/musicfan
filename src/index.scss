@@ -1,4 +1,6 @@
- *,
+@use 'fonts';
+
+*,
  *::before,
  *::after {
      padding: 0;
@@ -17,7 +19,7 @@
 
 body {
     color: var(--main-text-color);
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Lato system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
     min-height: 100dvh;
