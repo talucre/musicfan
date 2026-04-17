@@ -11,7 +11,9 @@
 @mixin nav-item {
   background-color: var(--background-navbar-color);
 
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   width: 100%;
   padding: 8px;
   margin-bottom: 20px;
@@ -20,13 +22,17 @@
   color: var(--secondary-text-color);
   text-decoration: none;
   transition: background-color 0.2s;
-
   &:hover {
     background-color: color-mix(var(--background-navbar-color), white 20%);
   }
 
   &:active {
     background-color: color-mix(var(--background-navbar-color), white 25%);
+  }
+
+  svg {
+    width: 27px;
+    height: 27px;
   }
 }
 
