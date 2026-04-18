@@ -1,5 +1,5 @@
 .cover {
-  width: 240px;
+  width: calc(240px - 16px); // item width - paddings
   height: 240px;
   object-fit: cover;
 }

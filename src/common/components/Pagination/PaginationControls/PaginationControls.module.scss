@@ -2,24 +2,26 @@
   display: flex;
   gap: 8px;
   justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
 
   .pageButton {
-    padding: 4px 10px;
-    background: white;
-    border: 1px solid #aaa;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: #292929;
     border-radius: 4px;
     cursor: pointer;
 
     &Active {
-      background: #ececec;
+      background: var(--btn-accent-color);
       cursor: default;
     }
-
   }
+}
 
-  .ellipsis {
-    padding: 4px 10px;
-    color: #888;
-    user-select: none;
-  }
+.ellipsis {
+  user-select: none;
+  cursor: default !important;;
 }

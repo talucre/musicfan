@@ -16,11 +16,16 @@ export const PlaylistsPage = () => {
     const [pageSize, setPageSize] = useState(8)
 
     const debouncedSearch = useDebounceValue(search)
-    const { data, isLoading } = useFetchPlaylistsQuery({
-        search: debouncedSearch,
-        pageNumber: currentPage,
-        pageSize,
-    })
+    const { data, isLoading } = useFetchPlaylistsQuery(
+        {
+            search: debouncedSearch,
+            pageNumber: currentPage,
+            pageSize,
+        },
+        {
+            refetchOnReconnect: true,
+        },
+    )
 
     const searchPlaylistHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.currentTarget.value)

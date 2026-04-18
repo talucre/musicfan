@@ -15,9 +15,13 @@ export const PaginationControls = ({
         <div className={s.pagination}>
             {pages.map((page, idx) =>
                 page === '...' ? (
-                    <span className={s.ellipsis} key={`ellipsis-${idx}`}>
+                    <button
+                        disabled
+                        className={`${s.pageButton} ${s.ellipsis}`}
+                        key={`ellipsis-${idx}`}
+                    >
                         ...
-                    </span>
+                    </button>
                 ) : (
                     <button
                         key={page}
