@@ -23,6 +23,7 @@
   color: var(--secondary-text-color);
   text-decoration: none;
   transition: background-color 0.2s;
+
   &:hover {
     background-color: color-mix(var(--background-navbar-color), white 20%);
   }
