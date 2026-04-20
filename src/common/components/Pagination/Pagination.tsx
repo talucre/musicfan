@@ -3,7 +3,7 @@ import { getPaginationPages } from '@/common/utils'
 import { PaginationControls } from '@/common/components/Pagination/PaginationControls'
 import { PageSizeSelector } from '@/common/components/Pagination/PageSizeSelector'
 
-import s from './Pagination.module.scss'
+import s from './Pagination.module.css'
 
 type Props = {
     currentPage: number

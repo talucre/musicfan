@@ -8,7 +8,7 @@ import { Pagination } from '@/common/components'
 import { CreatePlaylistForm } from '@/features/playlists/ui/CreatePlaylistForm'
 import { PlaylistList } from '@/features/playlists/ui/PlaylistList'
 
-import s from './PlaylistPage.module.scss'
+import s from './PlaylistPage.module.css'
 
 export const PlaylistsPage = () => {
     const [search, setSearch] = useState('')

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router'
 
-import { MainPage } from '@/app/ui/MainPage'
+import { MainPage } from '@/app/ui'
 import { ProfilePage } from '@/features/auth/ui'
 import { PlaylistsPage } from '@/features/playlists/ui'
 import { TracksPage } from '@/features/tracks/ui/TracksPage'

@@ -10,7 +10,7 @@ import FileUploadIcon from '@/assets/icons/file-upload.svg?react'
 import MusicNoteIcon from '@/assets/icons/music-note.svg?react'
 import MusicVideoIcon from '@/assets/icons/music-video.svg?react'
 
-import s from './Navbar.module.scss'
+import s from './Navbar.module.css'
 
 export const Navbar = () => {
     return (

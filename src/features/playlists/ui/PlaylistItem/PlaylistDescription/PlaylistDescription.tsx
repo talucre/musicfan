@@ -1,5 +1,5 @@
 import type { PlaylistAttributes } from '@/features/playlists/api/playlistsApi.types.ts'
-import s from './PlaylistDescription.module.scss'
+import s from './PlaylistDescription.module.css'
 
 type Props = {
     attributes: PlaylistAttributes

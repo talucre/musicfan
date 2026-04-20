@@ -2,7 +2,7 @@ import { Outlet } from 'react-router'
 import { Header } from '@/common/components'
 import { Navbar } from '@/common/components/Navbar/Navbar.tsx'
 
-import s from './Layout.module.scss'
+import s from './Layout.module.css'
 
 export const Layout = () => {
     return (

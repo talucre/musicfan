@@ -1,5 +1,5 @@
-import s from './Header.module.scss'
-import baseStyles from '@/styles.module.scss'
+import s from './Header.module.css'
+import baseStyles from '@/styles.module.css'
 
 export const Header = () => {
     return (

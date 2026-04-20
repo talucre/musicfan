@@ -1,7 +1,7 @@
 import ArrowLeftIcon from '@/assets/icons/arrow-left.svg?react'
 import ArrowRightIcon from '@/assets/icons/arrow-right.svg?react'
 
-import s from './PaginationControls.module.scss'
+import s from './PaginationControls.module.css'
 
 type Props = {
     pages: (number | '...')[]

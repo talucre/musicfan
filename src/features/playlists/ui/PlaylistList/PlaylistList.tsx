@@ -10,7 +10,7 @@ import type {
 import { EditPlaylistForm } from '@/features/playlists/ui/EditPlaylistForm'
 import { PlaylistItem } from '@/features/playlists/ui/PlaylistItem'
 
-import s from './PlaylistList.module.scss'
+import s from './PlaylistList.module.css'
 
 type Props = {
     playlists: PlaylistData[]

@@ -5,7 +5,7 @@ import {
     useUploadPlaylistCoverMutation,
 } from '@/features/playlists/api/playlistsApi.ts'
 import defaultCover from '@/assets/images/default-playlist-cover.png'
-import s from './PlaylistCover.module.scss'
+import s from './PlaylistCover.module.css'
 import { toast } from 'react-toastify'
 
 type Props = {

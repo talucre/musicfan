@@ -8,9 +8,9 @@
   top: 80px;
 }
 
-@mixin nav-item {
+.link,
+.activeLink {
   background-color: var(--background-navbar-color);
-
   display: flex;
   align-items: center;
   gap: 16px;
@@ -23,26 +23,24 @@
   color: var(--secondary-text-color);
   text-decoration: none;
   transition: background-color 0.2s;
-
-  &:hover {
-    background-color: color-mix(var(--background-navbar-color), white 20%);
-  }
-
-  &:active {
-    background-color: color-mix(var(--background-navbar-color), white 25%);
-  }
-
-  svg {
-    width: 27px;
-    height: 27px;
-  }
 }
 
-.link {
-  @include nav-item;
+.link:hover,
+.activeLink:hover {
+  background-color: color-mix(in srgb, var(--background-navbar-color), white 20%);
+}
+
+.link:active,
+.activeLink:active {
+  background-color: color-mix(in srgb, var(--background-navbar-color), white 25%);
+}
+
+.link svg,
+.activeLink svg {
+  width: 27px;
+  height: 27px;
 }
 
 .activeLink {
-  @include nav-item;
   color: var(--main-text-color);
 }
