@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router'
 
 import { MainPage } from '@/app/ui'
-import { ProfilePage } from '@/features/auth/ui'
-import { PlaylistsPage } from '@/features/playlists/ui'
+import { ProfilePage } from '@/features/auth'
+import { PlaylistsPage } from '@/features/playlists'
 import { TracksPage } from '@/features/tracks/ui/TracksPage'
 import { PageNotFound } from '@/common/components'
 
 import { Path } from './Path'
-import { Layout } from '@/common/components/Layout/Layout.tsx'
+import { Layout } from '@/common/components'
 
 export const Routing = () => (
     <Routes>

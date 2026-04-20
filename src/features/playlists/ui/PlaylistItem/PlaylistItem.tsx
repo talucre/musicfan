@@ -1,6 +1,6 @@
 import type { PlaylistData } from '@/features/playlists/api/playlistsApi.types.ts'
-import { PlaylistCover } from '@/features/playlists/ui/PlaylistItem/PlaylistCover/PlaylistCover.tsx'
-import { PlaylistDescription } from '@/features/playlists/ui/PlaylistItem/PlaylistDescription/PlaylistDescription.tsx'
+import { PlaylistCover } from '@/features/playlists/ui/PlaylistItem/PlaylistCover'
+import { PlaylistDescription } from '@/features/playlists/ui/PlaylistItem/PlaylistDescription'
 
 type Props = {
     playlist: PlaylistData
