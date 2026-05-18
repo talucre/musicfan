@@ -27,7 +27,7 @@
 
 
 .pagination .pageButtonActive {
-  background: var(--btn-accent-color);
+  background: var(--accent-color);
   cursor: default;
   pointer-events: none;
 }
