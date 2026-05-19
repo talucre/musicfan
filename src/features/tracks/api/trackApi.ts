@@ -11,7 +11,7 @@ export const trackApi = baseApi.injectEndpoints({
             infiniteQueryOptions: {
                 initialPageParam: null,
                 getNextPageParam: lastPage => {
-                    return lastPage.meta.nextCursor
+                    return lastPage.meta.nextCursor || null
                 },
             },
             query: ({ pageParam }) => ({

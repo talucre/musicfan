@@ -1,66 +1,32 @@
 import { useFetchTracksInfiniteQuery } from '@/features/tracks/api/trackApi.ts'
-import s from './TracksPage.module.css'
+import { useInfiniteScroll } from '@/common/hooks'
+import { TracksList } from '@/features/tracks/ui/TracksList'
+import { LoadingTrigger } from '@/features/tracks/ui/LoadingTrigger'
 
 export const TracksPage = () => {
-    const {
-        data,
-        isLoading,
-        isFetching,
-        isFetchingNextPage,
+    const { data, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage } =
+        useFetchTracksInfiniteQuery()
+
+    const { observerRef } = useInfiniteScroll({
         fetchNextPage,
         hasNextPage,
-    } = useFetchTracksInfiniteQuery()
+        isFetching,
+    })
 
     const pages = data?.pages.flatMap(page => page.data) || []
-
-    const loadMoreHandler = () => {
-        if (hasNextPage && !isFetching) {
-            fetchNextPage()
-        }
-    }
 
     return (
         <div>
             <h1>TracksPage</h1>
-            <div className={s.list}>
-                {pages.map(track => {
-                    const { title, user, attachments } = track.attributes
+            <TracksList tracks={pages} />
+            {hasNextPage && (
+                <LoadingTrigger
+                    observerRef={observerRef}
+                    isFetchingNextPage={isFetchingNextPage}
+                />
+            )}
 
-                    return (
-                        <div key={track.id} className={s.item}>
-                            <div>
-                                <p>Title: {title}</p>
-                                <p>Name: {user.name}</p>
-                            </div>
-                            <div>
-                                {attachments.length ? (
-                                    <audio controls src={attachments[0].url} />
-                                ) : (
-                                    'no file'
-                                )}
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
-            <div>
-                {!isLoading && (
-                    <>
-                        {hasNextPage ? (
-                            <button
-                                onClick={loadMoreHandler}
-                                disabled={isFetching}
-                            >
-                                {isFetchingNextPage
-                                    ? 'Loading...'
-                                    : 'Load More'}
-                            </button>
-                        ) : (
-                            <p>Nothing more to load</p>
-                        )}
-                    </>
-                )}
-            </div>
+            {!hasNextPage && pages.length > 0 && <p>Nothing more to load</p>}
         </div>
     )
 }
