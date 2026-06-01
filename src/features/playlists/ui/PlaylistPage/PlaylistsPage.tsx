@@ -13,7 +13,7 @@ import s from './PlaylistPage.module.css'
 export const PlaylistsPage = () => {
     const [search, setSearch] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
-    const [pageSize, setPageSize] = useState(8)
+    const [pageSize, setPageSize] = useState(20)
 
     const debouncedSearch = useDebounceValue(search)
     const { data, isLoading } = useFetchPlaylistsQuery(
@@ -26,6 +26,15 @@ export const PlaylistsPage = () => {
             refetchOnReconnect: true,
         },
     )
+
+    const setCurrentPageHandler = (page: number) => {
+        setCurrentPage(page)
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        })
+    }
 
     const searchPlaylistHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.currentTarget.value)
@@ -53,7 +62,7 @@ export const PlaylistsPage = () => {
             />
             <Pagination
                 currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
+                setCurrentPage={setCurrentPageHandler}
                 pagesCount={data?.meta.pagesCount || 1}
                 pageSize={pageSize}
                 changePageSize={changePageSizeHandler}

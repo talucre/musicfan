@@ -14,7 +14,7 @@ export const PaginationControls = ({
     currentPage,
     setCurrentPage,
 }: Props) => {
-    const lastPage = pages[3]
+    const lastPage = pages.at(-1)
 
     return (
         <div className={s.pagination}>

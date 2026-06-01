@@ -1,7 +1,7 @@
 import { getPaginationPages } from '@/common/utils'
 
 import { PaginationControls } from '@/common/components/Pagination/PaginationControls'
-import { PageSizeSelector } from '@/common/components/Pagination/PageSizeSelector'
+// import { PageSizeSelector } from '@/common/components/Pagination/PageSizeSelector'
 
 import s from './Pagination.module.css'
 
@@ -17,8 +17,8 @@ export const Pagination = ({
     currentPage,
     setCurrentPage,
     pagesCount,
-    pageSize,
-    changePageSize,
+    // pageSize,
+    // changePageSize,
 }: Props) => {
     if (pagesCount <= 1) return null
 
@@ -31,10 +31,10 @@ export const Pagination = ({
                 setCurrentPage={setCurrentPage}
                 currentPage={currentPage}
             />
-            <PageSizeSelector
-                pageSize={pageSize}
-                changePageSize={changePageSize}
-            />
+            {/*<PageSizeSelector*/}
+            {/*    pageSize={pageSize}*/}
+            {/*    changePageSize={changePageSize}*/}
+            {/*/> не особо нужен для данного макета, полезно для практики */}
         </div>
     )
 }
