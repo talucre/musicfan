@@ -46,6 +46,8 @@ export const PlaylistsPage = () => {
         setCurrentPage(1)
     }
 
+    if (isLoading) return <div>Skeleton loader...</div>
+
     return (
         <div className={s.container}>
             <h1>Playlists page</h1>
