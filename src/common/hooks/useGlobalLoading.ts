@@ -13,6 +13,11 @@ export const useGlobalLoading = () => {
         const queries = Object.values(state.baseApi.queries || {})
         const mutations = Object.values(state.baseApi.mutations || {})
 
+        // при первой загрузке будет собственный skeleton
+        // поэтому не показываем loader для лучшего UI/UX
+        // если есть завершенные запросы, значит мы уже
+        // используем пагинацию или инфинити скролл
+        // и показываем loader
         const hasActiveQueries = queries.some(query => {
             if (query?.status !== 'pending') return
             if (excludedEndpoints.includes(query.endpointName)) {
