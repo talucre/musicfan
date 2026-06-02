@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .item {
@@ -11,4 +12,27 @@
     padding: 16px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 16px;
+}
+
+
+.textWrapper {
+    min-width: 0;
+    flex-grow: 1;
+}
+
+.ellipsisText {
+    margin: 0;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.playerBlock {
+    width: 300px;
+    flex-shrink: 0;
 }

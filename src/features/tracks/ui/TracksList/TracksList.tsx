@@ -13,11 +13,11 @@ export const TracksList = ({ tracks }: Props) => {
 
                 return (
                     <div key={track.id} className={s.item}>
-                        <div>
-                            <p>Title: {title}</p>
-                            <p>Name: {user.name}</p>
+                        <div className={s.textWrapper}>
+                            <p className={s.ellipsisText}>Title: {title}</p>
+                            <p className={s.ellipsisText}>Name: {user.name}</p>
                         </div>
-                        <div>
+                        <div className={s.playerBlock}>
                             {attachments.length ? (
                                 <audio controls src={attachments[0].url} />
                             ) : (

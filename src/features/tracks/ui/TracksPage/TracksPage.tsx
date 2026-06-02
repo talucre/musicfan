@@ -1,4 +1,4 @@
-import { useFetchTracksInfiniteQuery } from '@/features/tracks/api/trackApi.ts'
+import { useFetchTracksInfiniteQuery } from '../../api/tracksApi.ts'
 import { useInfiniteScroll } from '@/common/hooks'
 import { TracksList } from '@/features/tracks/ui/TracksList'
 import { LoadingTrigger } from '@/features/tracks/ui/LoadingTrigger'

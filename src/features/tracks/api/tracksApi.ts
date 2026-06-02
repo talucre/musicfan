@@ -1,7 +1,7 @@
 import { baseApi } from '@/app/api/baseApi.ts'
 import type { FetchTracksResponse } from './trackApi.types.ts'
 
-export const trackApi = baseApi.injectEndpoints({
+export const tracksApi = baseApi.injectEndpoints({
     endpoints: build => ({
         fetchTracks: build.infiniteQuery<
             FetchTracksResponse,
@@ -19,11 +19,11 @@ export const trackApi = baseApi.injectEndpoints({
                 params: {
                     cursor: pageParam,
                     paginationType: 'cursor',
-                    pageSize: 5,
+                    pageSize: 10,
                 },
             }),
         }),
     }),
 })
 
-export const { useFetchTracksInfiniteQuery } = trackApi
+export const { useFetchTracksInfiniteQuery } = tracksApi
