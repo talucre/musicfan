@@ -12,7 +12,7 @@ export const playlistsApi = baseApi.injectEndpoints({
     endpoints: build => ({
         // Playlists
         fetchPlaylists: build.query<PlaylistsResponse, FetchPlaylistsArgs>({
-            query: params => ({ url: 'playlists2', params }),
+            query: params => ({ url: 'playlists', params }),
             providesTags: ['Playlist'],
         }),
         createPlaylist: build.mutation<
