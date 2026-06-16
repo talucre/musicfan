@@ -1,0 +1,44 @@
+import { useLoginMutation } from '@/features/auth'
+import { Path } from '@/common/routing'
+
+import baseStyles from '@/styles.module.css'
+
+export const Login = () => {
+    const [login] = useLoginMutation()
+
+    const loginHandler = () => {
+        const redirectUri =
+            import.meta.env.VITE_DOMAIN_ADDRESS + Path.OAuthRedirect
+
+        const url = `${import.meta.env.VITE_BASE_URL}/auth/oauth-redirect?callbackUrl=${redirectUri}`
+
+        window.open(url, 'OAuthPopup', 'width=500 height=600')
+
+        const receiveMessage = (event: MessageEvent) => {
+            if (event.origin !== import.meta.env.VITE_DOMAIN_ADDRESS) return
+
+            const { code } = event.data
+            if (!code) return
+
+            window.removeEventListener('message', receiveMessage)
+
+            login({
+                code,
+                redirectUri,
+                rememberMe: false,
+            })
+        }
+
+        window.addEventListener('message', receiveMessage)
+    }
+
+    return (
+        <button
+            className={baseStyles.btn}
+            type={'button'}
+            onClick={loginHandler}
+        >
+            Sign up with APIHUB
+        </button>
+    )
+}

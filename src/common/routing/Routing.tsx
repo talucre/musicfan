@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router'
 
 import { MainPage } from '@/app/ui'
-import { ProfilePage } from '@/features/auth'
-import { PlaylistsPage } from '@/features/playlists/ui/PlaylistsPage'
-import { TracksPage } from '@/features/tracks/ui/TracksPage'
+import { OAuthCallback, ProfilePage } from '@/features/auth'
+import { PlaylistsPage } from '@/features/playlists'
+import { TracksPage } from '@/features/tracks'
 import { PageNotFound } from '@/common/components'
 
 import { Path } from './Path'
@@ -16,6 +16,7 @@ export const Routing = () => (
             <Route path={Path.Profile} element={<ProfilePage />} />
             <Route path={Path.Playlists} element={<PlaylistsPage />} />
             <Route path={Path.Tracks} element={<TracksPage />} />
+            <Route path={Path.OAuthRedirect} element={<OAuthCallback />} />
             <Route path={Path.NotFound} element={<PageNotFound />} />
         </Route>
     </Routes>

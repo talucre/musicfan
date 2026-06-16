@@ -1,1 +1,1 @@
-export { TracksPage } from './ui/TracksPage/TracksPage.tsx'
+export { TracksPage } from './ui'
