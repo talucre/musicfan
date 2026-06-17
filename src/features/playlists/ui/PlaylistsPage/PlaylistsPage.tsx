@@ -5,7 +5,6 @@ import { useFetchPlaylistsQuery } from '@/features/playlists/api/playlistsApi.ts
 import { useDebounceValue } from '@/common/hooks'
 import { Pagination } from '@/common/components'
 
-import { CreatePlaylistForm } from '@/features/playlists/ui/CreatePlaylistForm'
 import { PlaylistList } from '@/features/playlists/ui/PlaylistList'
 
 import s from './PlaylistPage.module.css'
@@ -16,16 +15,11 @@ export const PlaylistsPage = () => {
     const [pageSize, setPageSize] = useState(20)
 
     const debouncedSearch = useDebounceValue(search)
-    const { data, isLoading } = useFetchPlaylistsQuery(
-        {
-            search: debouncedSearch,
-            pageNumber: currentPage,
-            pageSize,
-        },
-        {
-            refetchOnReconnect: true,
-        },
-    )
+    const { data, isLoading } = useFetchPlaylistsQuery({
+        search: debouncedSearch,
+        pageNumber: currentPage,
+        pageSize,
+    })
 
     const setCurrentPageHandler = (page: number) => {
         setCurrentPage(page)
@@ -51,7 +45,6 @@ export const PlaylistsPage = () => {
     return (
         <div className={s.container}>
             <h1>Playlists page</h1>
-            <CreatePlaylistForm />
             <input
                 type="search"
                 placeholder="Search playlist by title"
