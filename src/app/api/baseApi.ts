@@ -7,5 +7,6 @@ export const baseApi = createApi({
     tagTypes: ['Playlist', 'Auth'],
     refetchOnReconnect: true,
     baseQuery: baseQueryWithReauth,
+    skipSchemaValidation: process.env.NODE_ENV === 'production', // disabling zod in production
     endpoints: () => ({}),
 })

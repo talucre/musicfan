@@ -1,16 +1,22 @@
 import { baseApi } from '@/app/api/baseApi.ts'
 import { AUTH_KEYS } from '@/common/constants'
-import type { LoginArgs, LoginResponse, MeResponse } from './authApi.types.ts'
+import { withZodCatch } from '@/common/utils'
+import {
+    loginResponseSchema,
+    meResponseSchema,
+} from '@/features/auth/model/auth.schemas.ts'
+import type { LoginArgs } from './authApi.types.ts'
 
 export const authApi = baseApi.injectEndpoints({
     endpoints: build => {
         return {
-            getMe: build.query<MeResponse, void>({
+            getMe: build.query({
                 query: () => 'auth/me',
+                ...withZodCatch(meResponseSchema),
                 providesTags: ['Auth'],
             }),
-            login: build.mutation<LoginResponse, LoginArgs>({
-                query: payload => ({
+            login: build.mutation({
+                query: (payload: LoginArgs) => ({
                     url: '/auth/login',
                     method: 'post',
                     body: { ...payload, accessTokenTTL: '10m' },
@@ -27,9 +33,10 @@ export const authApi = baseApi.injectEndpoints({
                     )
                     dispatch(authApi.util.invalidateTags(['Auth']))
                     // Need to invalidate tags here by hand because
-                    // It won't work correctly otherwise
+                    // It won't work correctly in invalidatesTags property because
                     // getMe request will be sent before tokens will be set
                 },
+                ...withZodCatch(loginResponseSchema),
             }),
             logout: build.mutation<void, void>({
                 query: () => {

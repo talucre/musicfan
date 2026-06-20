@@ -1,5 +1,7 @@
 import { baseApi } from '@/app/api/baseApi.ts'
 import type { FetchTracksResponse } from './trackApi.types.ts'
+import { fetchTracksResponseSchema } from '@/features/tracks/model/tracks.schemas.ts'
+import { withZodCatch } from '@/common/utils'
 
 export const tracksApi = baseApi.injectEndpoints({
     endpoints: build => ({
@@ -22,6 +24,7 @@ export const tracksApi = baseApi.injectEndpoints({
                     pageSize: 10,
                 },
             }),
+            ...withZodCatch(fetchTracksResponseSchema),
         }),
     }),
 })

@@ -14,9 +14,14 @@ import s from './PlaylistCover.module.css'
 type Props = {
     playlistId: string
     images: Images
+    isEditable?: boolean
 }
 
-export const PlaylistCover = ({ playlistId, images }: Props) => {
+export const PlaylistCover = ({
+    playlistId,
+    images,
+    isEditable = false,
+}: Props) => {
     const [uploadPlaylistCover, { isLoading }] =
         useUploadPlaylistCoverMutation()
     const [deletePlaylistCover] = useDeletePlaylistCoverMutation()
@@ -51,15 +56,21 @@ export const PlaylistCover = ({ playlistId, images }: Props) => {
     return (
         <>
             <img src={src} alt="cover" width={'240px'} className={s.cover} />
-            {/*<input*/}
-            {/*    type="file"*/}
-            {/*    accept={'image/jpeg,image/png,image/gif'}*/}
-            {/*    onChange={uploadCoverHandler}*/}
-            {/*    disabled={isLoading}*/}
-            {/*/>*/}
-            {/*{originalCover && (*/}
-            {/*    <button onClick={deleteCoverHandler}>delete cover</button>*/}
-            {/*)}*/}
+            {isEditable && (
+                <>
+                    <input
+                        type="file"
+                        accept={'image/jpeg,image/png,image/gif'}
+                        onChange={uploadCoverHandler}
+                        disabled={isLoading}
+                    />
+                    {originalCover && (
+                        <button onClick={deleteCoverHandler}>
+                            delete cover
+                        </button>
+                    )}
+                </>
+            )}
         </>
     )
 }

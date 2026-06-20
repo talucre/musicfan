@@ -15,9 +15,14 @@ import s from './PlaylistList.module.css'
 type Props = {
     playlists: PlaylistData[]
     isPlaylistLoading: boolean
+    isEditable?: boolean
 }
 
-export const PlaylistList = ({ playlists, isPlaylistLoading }: Props) => {
+export const PlaylistList = ({
+    playlists,
+    isPlaylistLoading,
+    isEditable = false,
+}: Props) => {
     const [playlistId, setPlaylistId] = useState<string | null>(null)
 
     const { register, handleSubmit, reset } = useForm<UpdatePlaylistArgs>()
@@ -66,6 +71,7 @@ export const PlaylistList = ({ playlists, isPlaylistLoading }: Props) => {
                                 playlist={playlist}
                                 editPlaylistHandler={editPlaylistHandler}
                                 deletePlaylistHandler={deletePlaylistHandler}
+                                isEditable={isEditable}
                             />
                         )}
                     </div>

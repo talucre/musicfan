@@ -6,26 +6,33 @@ type Props = {
     playlist: PlaylistData
     editPlaylistHandler: (playlist: PlaylistData) => void
     deletePlaylistHandler: (playlistId: string) => void
+    isEditable?: boolean
 }
 
 export const PlaylistItem = ({
     playlist,
     editPlaylistHandler,
     deletePlaylistHandler,
+    isEditable = false,
 }: Props) => {
     return (
         <div>
             <PlaylistCover
                 playlistId={playlist.id}
                 images={playlist.attributes.images}
+                isEditable={isEditable}
             />
             <PlaylistDescription attributes={playlist.attributes} />
-            <button onClick={() => editPlaylistHandler(playlist)}>
-                update
-            </button>
-            <button onClick={() => deletePlaylistHandler(playlist.id)}>
-                delete
-            </button>
+            {isEditable && (
+                <>
+                    <button onClick={() => editPlaylistHandler(playlist)}>
+                        update
+                    </button>
+                    <button onClick={() => deletePlaylistHandler(playlist.id)}>
+                        delete
+                    </button>
+                </>
+            )}
         </div>
     )
 }

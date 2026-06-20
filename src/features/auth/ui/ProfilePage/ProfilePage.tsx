@@ -32,6 +32,7 @@ export const ProfilePage = () => {
             <PlaylistList
                 playlists={playlistsResponse?.data || []}
                 isPlaylistLoading={isLoading || isMeLoading}
+                isEditable={true}
             />
         </div>
     )
