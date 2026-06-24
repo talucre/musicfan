@@ -17,7 +17,7 @@ export const TracksPage = () => {
 
     return (
         <div>
-            <h1>TracksPage</h1>
+            <h1>All Tracks</h1>
             <TracksList tracks={pages} />
             {hasNextPage && (
                 <LoadingTrigger

@@ -8,6 +8,7 @@ import { Pagination } from '@/common/components'
 import { PlaylistList } from '@/features/playlists/ui/PlaylistList'
 
 import s from './PlaylistPage.module.css'
+import { Search } from '@/common/components/Search'
 
 export const PlaylistsPage = () => {
     const [search, setSearch] = useState('')
@@ -40,14 +41,24 @@ export const PlaylistsPage = () => {
         setCurrentPage(1)
     }
 
-    if (isLoading) return <div>Skeleton loader...</div>
+    if (isLoading)
+        return (
+            <div className={s.container}>
+                <h1>All Playlists</h1>
+                <Search
+                    placeholder={'Search playlist by title'}
+                    value={search}
+                    onChange={searchPlaylistHandler}
+                />
+                <div>Skeleton...</div>
+            </div>
+        )
 
     return (
         <div className={s.container}>
-            <h1>Playlists page</h1>
-            <input
-                type="search"
-                placeholder="Search playlist by title"
+            <h1>All Playlists</h1>
+            <Search
+                placeholder={'Search playlist by title'}
                 value={search}
                 onChange={searchPlaylistHandler}
             />

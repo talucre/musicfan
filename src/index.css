@@ -14,6 +14,8 @@
   --background-page-color: #181818;
   --background-navbar-color: #000;
   --background-header-color: #000;
+  --background-input-color: rgba(47, 47, 47, 1);
+  --border-input-color: rgba(179, 179, 179, 1);
   --accent-color: #FF38B6;
 }
 
