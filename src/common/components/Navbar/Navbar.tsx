@@ -14,7 +14,7 @@ import s from './Navbar.module.css'
 
 export const Navbar = () => {
     return (
-        <nav className={s.navbar}>
+        <aside className={s.navbar}>
             <div className={s.container}>
                 <NavLink
                     to={Path.Main}
@@ -63,6 +63,6 @@ export const Navbar = () => {
                     All Playlists
                 </NavLink>
             </div>
-        </nav>
+        </aside>
     )
 }

@@ -35,12 +35,6 @@ export const EditPlaylistForm = ({
             <div>
                 <input {...register('title')} placeholder={'title'} />
             </div>
-            <div>
-                <input
-                    {...register('description')}
-                    placeholder={'description'}
-                />
-            </div>
             <button type="submit">save</button>
             <button type="button" onClick={() => editPlaylist(null)}>
                 cancel

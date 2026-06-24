@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 import { Header } from '@/common/components'
-import { Navbar } from '@/common/components/Navbar/Navbar.tsx'
+import { Navbar } from '@/common/components/Navbar'
 
 import s from './Layout.module.css'
 

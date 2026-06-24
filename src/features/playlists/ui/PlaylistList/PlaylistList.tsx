@@ -40,7 +40,6 @@ export const PlaylistList = ({
             setPlaylistId(playlist.id)
             reset({
                 title: playlist.attributes.title,
-                description: playlist.attributes.description,
                 tagIds: playlist.attributes.tags.map(t => t.id),
             })
         } else {

@@ -25,6 +25,7 @@
   transition: background-color 0.2s;
 }
 
+
 .link:hover,
 .activeLink:hover {
   background-color: color-mix(in srgb, var(--background-navbar-color), white 20%);
